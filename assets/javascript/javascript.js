@@ -11,6 +11,7 @@ const initialsInput = document.getElementById("initials");
 const saveScoreButton = document.getElementById("save-score");
 const highScoresContainer = document.getElementById("high-scores");
 const goBackButton = document.getElementById("go-back"); 
+const splashScreenContainer = document.getElementById("splash-screen"); 
 
 // Questions array
 const questions = [
@@ -37,4 +38,30 @@ let timer;
 startButton.addEventListener("click", startQuiz);
 saveScoreButton.addEventListener("click", saveScore);
 goBackButton.addEventListener("click", goBack);
+
+// Function to start the game
+
+function startQuiz() {
+    splashScreenContainer.classList.add("hide");
+    quizContainer.classList.remove("hide");
+    timerElement.classList.remove("hide");
+// start timer and show first question
+    timer = setInterval(updateTime, 1000);
+    showQuestion();
+}
+
+
+// update the time remaining
+function updateTime() {
+    timeRemaining--;
+    timeRemainingElement.textcontent = timeRemaining;
+// to end quiz when timer hits 0
+if(timeRemaining <= 0) {
+    endQuiz();
+}
+}
+
+function showQuestion() {
+    const question = questions[]
+}
 

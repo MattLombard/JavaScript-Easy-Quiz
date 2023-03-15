@@ -9,13 +9,19 @@
   </head>
   <body>
     <div class="container">
-      <h1>JavaScript Quiz</h1>
-      <button id="start-button">Start</button>
+
+      <div id="splash-screen">
+        <h1>JavaScript Quiz</h1>
+        <button id="start-button">Start</button>
+      </div>
+
       <p id="timer" class="hide">Time: <span id="time-remaining">60</span></p>
+
       <div id="quiz-container" class="hide">
         <p id="question"></p>
         <div id="choices-all"></div>
       </div>
+
       <div id="game-over" class="hide">
         <h2>Game Over</h2>
         <p>Your score: <span id="score"></span></p>
@@ -25,9 +31,11 @@
           <button id="save-score">Save Score</button>
         </form>
       </div>
+
       <div id="high-scores" class="hide">
         <button id="go-back">Go Back</button>
       </div>
+      
     </div>
     <script src="assets/javascript/javascript.js"></script>
   </body>
