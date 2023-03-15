@@ -61,7 +61,39 @@ if(timeRemaining <= 0) {
 }
 }
 
+// Function to display the question and choices
 function showQuestion() {
-    const question = questions[]
+    const question = questions[currentQuestionIndex];
+    questionElement.innerText = question.text;
+    choicesContainer.innerHTML = "";
+
+    questions.choices.forEach((choice, index) => {
+        const button = document.createElement("button");
+        button.innerText = choice;
+        button.addEventListener("click", () => handleAnswer(index));
+            choicesContainer.appendChild(button);
+        });
+    
+}
+// function that will handle the users choice
+function handleAnswer(choiceIndex) {
+    if (choiceIndex !== questions[currentQuestionIndex].correctIndex) {
+        timeRemaining = Math.max(0, timeRemaining - 10);
+        timeRemainingElement.textContent = timeRemaining;
+    }
+
+    //Move to next question or the quiz will end
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length && timeRemaining > 0) {
+        showQuestion();
+    } else {
+        endQuiz();
+    }
 }
 
+// Function that will end the quiz
+function endQuiz () {
+    clearInterval(timer);
+    quizContainer.classList.add("hidden");
+    gamerOver.classList.remove
+}
