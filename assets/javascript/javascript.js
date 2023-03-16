@@ -94,6 +94,36 @@ function handleAnswer(choiceIndex) {
 // Function that will end the quiz
 function endQuiz () {
     clearInterval(timer);
-    quizContainer.classList.add("hidden");
-    gamerOver.classList.remove
+    quizContainer.classList.add("hide");
+    gamerOver.classList.remove("hide");
+    scoreElement.innerText = timeRemaining;
 }
+
+//function to save score
+
+function saveScore(event) {
+    event.preventDefault();
+
+    const initials = initialsInput.ariaValueMax.trim();
+    if (!initials) {
+        return;
+    }
+
+    const highScores = JSON.parse(localStorage.getItem("highscores")) || [];
+    const newScore = { initials, score: timeRemaining };
+    highScores.push(newScore);
+    localStorage.setItem("highscores", JSON.stringify(highScores));
+
+    // Display initials and score next to the score element
+    const scoreDisplay = document.createElement('div');
+    scoreDisplay.innerHTML = `${initials}: ${timeRemaining}`;
+    scoreElement.parentNode.insertBefore(scoreDisplay, scoreElement.nextElementSibling);
+
+    // Hide initials input and save score button
+    initialsInput.classList.add("hide");
+    saveScoreButton.classList.add("hide");
+}
+
+
+
+
