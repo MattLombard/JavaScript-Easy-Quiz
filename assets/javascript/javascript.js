@@ -128,8 +128,9 @@ function saveScore(event) {
   saveScoreButton.classList.add("hide");
   
 }
-
+// Function to go back and replay the quiz
 function goBack() {
+    // removes the score display element
   const scoreDisplay = scoreElement.nextSibling;
   if (scoreDisplay) {
     scoreElement.parentNode.removeChild(scoreDisplay);
