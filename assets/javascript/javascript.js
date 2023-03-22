@@ -30,6 +30,33 @@ const questions = [
     choices: ["<head>", "<body>", "<footer>", "<scripting>"],
     correctIndex: 1,
   },
+  {
+    text: "What is the correct syntax for declaring a variable in JavaScript?",
+    choices: ["variable myVar;", "var myVar;", "let myVar;", "declare myVar;"],
+    correctIndex: 1,
+  },
+
+  {
+    text: "What is the correct syntax to display an alert box in JavaScript?",
+    choices: [
+      "alertBox('Hello World');",
+      "msgBox('Hello World');",
+      "alert('Hello World');",
+      "message('Hello World');",
+    ],
+    correctIndex: 2,
+  },
+
+  {
+    text: "How do you create a function in JavaScript?",
+    choices: [
+      "function myFunction() {}",
+      "function:myFunction() {}",
+      "create myFunction() {}",
+      "def myFunction() {}",
+    ],
+    correctIndex: 0,
+  },
 ];
 
 // Variables for current question index and remaining time
@@ -120,17 +147,18 @@ function saveScore(event) {
   // Display initials and score next to the score element
   const scoreDisplay = document.createElement("div");
   scoreDisplay.innerHTML = `${initials}: ${timeRemaining}`;
-  scoreElement.parentNode.insertBefore(scoreDisplay, scoreElement.nextElementSibling
+  scoreElement.parentNode.insertBefore(
+    scoreDisplay,
+    scoreElement.nextElementSibling
   );
 
   // Hide initials input and save score button
   initialsInput.classList.add("hide");
   saveScoreButton.classList.add("hide");
-  
 }
 // Function to go back and replay the quiz
 function goBack() {
-    // removes the score display element
+  // removes the score display element
   const scoreDisplay = scoreElement.nextSibling;
   if (scoreDisplay) {
     scoreElement.parentNode.removeChild(scoreDisplay);
